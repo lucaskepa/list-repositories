@@ -1,0 +1,43 @@
+@import "../../../variables.scss";
+
+.search-button {
+  @include border-radius;
+  padding: 0 20px 0 20px;
+  border: 0;
+  color: #fff;
+  background: $gradient-dark-blue;
+  margin-left: 5px;
+}
+.search-button:hover,
+.search-button:focus {
+  background: $gradient-dark-blue-focus;
+}
+.search-input {
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+.card {
+  margin-top: 10px;
+  -webkit-box-shadow: $card-shadow;
+  -moz-box-shadow: $card-shadow;
+  box-shadow: $card-shadow;
+}
+.repo-login{
+  margin-right: 10px;
+}
+.repo-name{
+  margin-left:10px;
+}
+.branch-info {
+  text-align: center;
+  p {
+    word-break: break-all;
+  }
+}
+
+.repo-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

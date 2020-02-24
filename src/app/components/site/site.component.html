@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3>Wyszukaj repozytoria</h3>
+      <form>
+        <div class="input-group mb-3">
+          <input [(ngModel)]="username" name="username" type="text" class="form-control search-input"
+            #usernameInput="ngModel" placeholder="Nazwa użytkownika GitHub" required>
+          <button type="button" class="button search-button" (click)="onSubmit()">
+            <fa-icon [icon]="faSearch"></fa-icon>
+          </button>
+        </div>
+        <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)" class="alert alert-danger">
+          <div *ngIf="usernameInput.errors.required">
+            Należy podać nazwę użytkownika.
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="text-center" *ngIf="showSpinner">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card" *ngFor="let repository of repositories">
+        <div class="repo-info">
+          <div class="repo-name">
+            <fa-icon [icon]="faGithub"></fa-icon> {{repository.name}}
+          </div>
+          <div class="repo-login">
+            <fa-icon [icon]="faUser"></fa-icon> {{repository.owner.login}}
+          </div>
+        </div>
+        <div *ngFor="let branch of repository.branches" class="branch-info">
+          <h5>
+            <fa-icon [icon]="faBranch"></fa-icon> {{branch.name}}
+          </h5>
+          <p>
+            <fa-icon [icon]="faHashtag"></fa-icon> {{branch.commit.sha}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

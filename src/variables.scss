@@ -1,0 +1,8 @@
+
+$gradient-dark-blue: linear-gradient(to bottom, #27457b 0%, #152e67 48%, #152e67 91%, #152e67 91%);
+$gradient-dark-blue-focus: #10224d;
+$card-shadow: 5px 5px 15px -5px rgba(0,0,0,0.75);
+
+@mixin border-radius {
+    border-radius: 5px;
+}
